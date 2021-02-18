@@ -1,0 +1,60 @@
+type Query {
+    conversationsPage(
+        projectId: String!
+        page: Int
+        pageSize: Int
+        status: [String]
+        sort: order #in the future if needed to sort on multiple fields passing and array of orders, and modifying the datasource(mongo/conversation.js) accordingly might to the trick
+    ): Pagination
+     conversation(projectId: String!, id: String, senderId: String): ConversationContainer!
+    latestImportedEvent(
+        projectId: String!
+        environment: Environement = development
+    ): String
+}
+
+enum order {
+    updatedAt_ASC
+    updatedAt_DESC
+}
+
+type Mutation {
+    markAsRead(id: String!): updateResponse!
+    updateStatus(id: String!, status: String): updateResponse!
+    delete(id: String!): updateResponse!
+    importConversations(
+        conversations: [ConversationContainerInput]!
+        projectId: String!
+        environment: Environement = development
+        importConversationsOnly: Boolean = false
+    ): batchMutationOutput
+}
+
+type Pagination {
+    conversations: [ConversationContainer!]!
+    pages: Int
+}
+
+type ConversationContainer {
+    tracker: Any
+    userId: String
+    projectId: String
+    status: String
+    _id: String
+    updatedAt: String
+    createdAt: String
+    env: String
+    language: String
+}
+
+input ConversationContainerInput {
+    tracker: Any!
+    userId: String
+    projectId: String
+    status: String
+    _id: String!
+    updatedAt: String
+    createdAt: String
+    env: String
+    language: String
+}

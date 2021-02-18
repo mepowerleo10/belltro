@@ -1,0 +1,25 @@
+type Query {
+    dialogueSearch(
+        projectId: String!
+        language: String!
+        queryString: String!
+    ): DialogueSearchResults
+}
+
+type DialogueSearchResults {
+    dialogueFragments: [Story]
+    forms: [Any]
+}
+
+type Story {
+    _id: String
+    type: DialogueFragmentType
+    title: String
+    storyGroupId: String
+    projectId: String
+}
+
+enum DialogueFragmentType {
+    story
+    rule
+}

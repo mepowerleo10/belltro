@@ -1,0 +1,243 @@
+.hidden {
+    visibility: hidden !important;
+    &:hover {
+        visibility: hidden !important;
+    }
+    * {
+        visibility: hidden !important;
+        &:hover {
+            visibility: hidden !important;
+        }
+    }
+}
+
+.floated {
+    &.right {
+        text-align: right;
+    }
+    &.left {
+        text-align: left;
+    }
+}
+
+.side-by-side {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    & > *:not(:first-child) {
+        margin-left: 0px !important;
+    }
+    & > *:not(:last-child) {
+        margin-right: 20px !important;
+    }
+    &.narrow > *:not(:last-child) {
+        margin-right: 7px !important;
+    }
+    &.middle {
+        align-items: center;
+    }
+    &.left {
+        justify-content: flex-start;
+    }
+    &.right {
+        justify-content: flex-end;
+    }
+    &.wrap {
+        flex-wrap: wrap;
+        & > * {
+            margin-bottom: 7px !important;
+        }
+    }
+    &.wipes {
+       margin-top: 1rem;
+    }
+}
+
+.image-modal {
+    padding: 30px;
+}
+
+.image-url-input {
+    margin-top: 6px;
+    width: 100%;
+    height: 100%;
+}
+
+.ui.label.file-label {
+    margin: 2px;
+}
+
+.ui.segment.import-box {
+    background-color: #f5f5f5;
+    .dropzone-data {
+        min-height: 125px;
+    }
+}
+
+.import-summary-accordion {
+    .title {
+        color: unset !important;
+        padding: 0 !important;
+        margin-left: -5.5px;
+        margin-bottom: 0.5em !important;
+        &.active {
+            margin-bottom: 0 !important;
+        }
+    }
+    div.content { margin-left: 1.1em; }
+    li.content { padding-left: 0.05em !important; }
+    .content {
+        margin-bottom: 0.5em !important;
+    }
+}
+
+.download-backup {
+    margin-bottom: 1rem
+}
+
+.upload-target {
+    outline: dashed @blue 5px;
+}
+
+.faded-upload-target {
+    outline: dashed fade(@blue, 20%) 5px;
+}
+
+.or {
+    display: flex;
+    margin: 1em 0;
+    justify-content: center;
+    align-items: center;
+    color:#333333;
+    font-variant: small-caps;
+    &:after,&:before {
+        content: "";
+        display: block;
+        position: relative;
+        top: 2px;
+        background: #cccccc;
+        width: 30%;
+        height:1px;
+        margin: 0 10px;
+    }
+}
+
+.glow-box {
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 5px rgba(34, 36, 38, 0.1);
+    border: 1px solid transparent;
+
+    &.extra-padding {
+        padding: 20px;
+    }
+
+    &.no-margin {
+        margin: 0;
+    }
+
+    .statistic {
+        padding: 30px;
+
+        .label {
+            font-size: 1.5rem !important;
+            font-family: @fontFamily !important;
+            font-weight: normal !important;
+            color: #556 !important;
+            text-transform: none !important;
+            margin-bottom: 16px;
+        }
+        .value {
+            font-size: 3rem !important;
+            font-weight: bold;
+            align-self: start;
+        }
+    }
+}
+
+.ui.popup.tool-tip-popup{
+    padding: 13px 17px;
+    text-align: left;
+}
+
+.warning .ui.primary.button {
+    background-color: #d02121;
+    &:hover {
+        background-color:#c21616;
+    }
+}
+
+
+.ui.menu .ui.dropdown .menu>.item#deleteDisabled{
+    cursor: not-allowed;
+    color: #828282 !important; //important is used by semantic-ui, making the usage of important the only way to overide it
+    background-color: #f2f2f2 !important; //important is used by semantic-ui, making the usage of important the only way to overide it
+    &:hover {
+        background-color:#f2f2f2; //important is used by semantic-ui, making the usage of important the only way to overide it
+    } 
+}
+
+
+.prefix-dropdown-container{
+    .ui.buttons.prefix-dropdown{
+        background-color: white !important;
+        &:hover{
+            border-color: rgba(0,0,0,0.25);
+        }
+        .ui.dropdown.button.icon{
+            padding:0px;
+            &.active{
+                background:rgba(0,0,0,0) !important; //required to overide semantic ui
+            }
+            .ui.segment.button.prefix-dropdown-trigger{
+                //alignment
+                text-align: left;
+                // border decoration
+                border-style: none;
+                // color and background
+                color: rgba(0,0,0,.87) !important; // required to overide semantic ui
+                // overflow
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+                //padding
+                padding-top: 0.8em;
+                padding-bottom: 0px;
+                padding-right: 0em;
+                // size
+                height: 2.45em;
+                width: 160px;
+            }
+            .dropdown.icon{
+                padding-top: 0.9em;
+                padding-left: 0em;
+                padding-right: 1em;
+            }
+        }
+    }
+}
+
+.item.popup-trigger-wrapper {
+    padding: 0;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0);
+    font-weight: unset;
+    font-size: inherit;
+    &:hover{
+        background-color: rgba(0, 0, 0, 0);
+    }
+}
+.extended-hover-container{
+    width: 100%;
+    position: relative;
+    max-height: 0;
+}
+.extended-hover-target{
+    width: 100%;
+    height: 2em;
+    opacity:0.0;
+    background-color: red;
+    // bottom: -2em;
+    position: relative;
+    z-index: 11;
+}
